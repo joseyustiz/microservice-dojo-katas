@@ -11,6 +11,7 @@ public class MysvcApplicationTests {
 
     @Test
     public void contextLoads() {
+        // Comment added to remove the code smell "Methods should not be empty"
     }
 
 }
