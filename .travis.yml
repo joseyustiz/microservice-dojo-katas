@@ -16,3 +16,5 @@ script:
   # other script steps might be done before running the actual analysis
   - sonar-scanner
   - ./gradlew build
+notifications:
+  email: false #disabling email notification
