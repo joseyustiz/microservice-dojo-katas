@@ -1,3 +1,2 @@
 rootProject.name = 'mysvc'
-include 'kata1'
-
+include 'kata1','kata-2'
