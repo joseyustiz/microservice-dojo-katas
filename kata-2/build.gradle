@@ -1,0 +1,54 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.6.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" } // required to find the Docker Gradle Plugin of Palantir
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        //dependencia para correr la aplicación en docker
+        classpath('gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.19.2')
+
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: "com.palantir.docker" // plugin para docker
+
+
+group = 'com.joseyustiz.msvcdojo'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-actuator')
+    implementation('org.springframework.boot:spring-boot-starter-web'){
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+    }
+    compile ('org.springframework.boot:spring-boot-starter-jetty') {
+        exclude group: 'org.eclipse.jetty.websocket'
+    }
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+// Instruction base in Spring Guide "Spring Boot with Docker"
+// located at https://spring.io/guides/gs/spring-boot-docker/
+task unpack(type: Copy) {
+    dependsOn bootJar
+    from(zipTree(tasks.bootJar.outputs.files.singleFile))
+    into("build/dependency")
+}
+docker {
+    name "${project.group}/${bootJar.baseName}"
+    dockerfile = file('src/main/docker/Dockerfile')
+    copySpec.from(tasks.unpack.outputs).into("dependency")
+    buildArgs(['DEPENDENCY': "dependency"])
+}
