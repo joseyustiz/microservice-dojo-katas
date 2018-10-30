@@ -1,4 +1,10 @@
 language: java
+#############################
+# Required for running docker
+sudo: required
+services:
+  - docker
+#############################
 addons:
   sonarcloud:
     organization: "joseyustiz-github"
