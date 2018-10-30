@@ -12,22 +12,22 @@
 ![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=joseyustiz_microservice-dojo-kata1&metric=sqale_index)
 ![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=joseyustiz_microservice-dojo-kata1&metric=vulnerabilities)
 
-This is the solution implementation for the katas defined at [Microservices-Dojo](http://accordance.github.io/microservice-dojo/). This project contains multiples subproject, one for each kata; The katas are the following: 
+This repository contains solutions for the katas defined at [Microservices-Dojo](http://accordance.github.io/microservice-dojo/). This project contains multiples subproject, one for each kata; The katas are the following: 
 
-| Kata # | Description | Tech Stack |
-| :----: | ----------- | ---------- |
-|  1     | [Building Simple Web Service with Spring Boot](http://accordance.github.io/microservice-dojo/katas/creating_basic_web_service.html) | Spring Cloud |
-|  2     | [Dockerizing Application](http://accordance.github.io/microservice-dojo/kata2/dockerizing_application.html) | Docker |
-|  3     | [Microservice with personal DB and database migrations](http://accordance.github.io/microservice-dojo/kata3/service_using_mysql_db.html) | Flyway |
-|  4     | [Externalizing configuration](http://accordance.github.io/microservice-dojo/kata4/externalizing_configuration.html) |  |
-|  5     | [Web Service using Mongo DB](http://accordance.github.io/microservice-dojo/kata5/service_using_mongo_db.html) |   |
-|  6     | [Service talking to another Service](http://accordance.github.io/microservice-dojo/kata6/service_talking_to_service.html) | Eureka, Ribbon and Feign |
-|  7     | [Circuit Breaker pattern](http://accordance.github.io/microservice-dojo/kata7/circuit_breakers.html) | Hystrix |
-|  8     | [Edge Service](http://accordance.github.io/microservice-dojo/kata8/edge_service.html) | Zuul |
+| Kata # | Description and Solution Proposed by the Author | My Solution | Tech Stack |
+| :----: | ----------- |------------| ---------- |
+|  1     | [Building Simple Web Service with Spring Boot](http://accordance.github.io/microservice-dojo/katas/creating_basic_web_service.html) | [Kata-1](https://github.com/joseyustiz/microservice-dojo-katas/tree/master/kata1)| Spring Cloud |
+|  2     | [Dockerizing Application](http://accordance.github.io/microservice-dojo/kata2/dockerizing_application.html) | [Kata-2](https://github.com/joseyustiz/microservice-dojo-katas/tree/master/kata-2) | Docker |
+|  3     | [Microservice with personal DB and database migrations](http://accordance.github.io/microservice-dojo/kata3/service_using_mysql_db.html) |  | Flyway |
+|  4     | [Externalizing configuration](http://accordance.github.io/microservice-dojo/kata4/externalizing_configuration.html) |  |  |
+|  5     | [Web Service using Mongo DB](http://accordance.github.io/microservice-dojo/kata5/service_using_mongo_db.html) |  |   |
+|  6     | [Service talking to another Service](http://accordance.github.io/microservice-dojo/kata6/service_talking_to_service.html) |  | Eureka, Ribbon and Feign |
+|  7     | [Circuit Breaker pattern](http://accordance.github.io/microservice-dojo/kata7/circuit_breakers.html) |  | Hystrix |
+|  8     | [Edge Service](http://accordance.github.io/microservice-dojo/kata8/edge_service.html) |  | Zuul |
 
 Complimentary Katas:
 
-| Kata # | Description | Tech Stack |
+| Kata # | Description and Solution Proposed by the Author | Tech Stack |
 | :----: | ----------- | ---------- |
 |  a     | [Getting Started with Web client](http://accordance.github.io/microservice-dojo/kata-web-client/web-client-basics.html) | Angular |
 |  b     | [Simple Orchestration](http://accordance.github.io/microservice-dojo/kata-dev-environment/simple-orchestration.html) |   |
@@ -37,7 +37,7 @@ Complimentary Katas:
 
 Contributed Katas:
 
-| Kata # | Description | Tech Stack |
+| Kata # | Description and Solution Proposed by the Author | Tech Stack |
 | :----: | ----------- | ---------- |
 |  a     | [Documenting RESTful APIs with Spring REST Docs](http://accordance.github.io/microservice-dojo/kata-spring-restdocs/spring-restdocs-intro.html) | Spring REST Docs |
 |  b     | [Embedding live service contracts documentation with Swagger](http://accordance.github.io/microservice-dojo/kata-swagger/swagger_api_doc.html) |  Swagger |
