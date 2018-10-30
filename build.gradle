@@ -28,6 +28,19 @@ repositories {
     mavenCentral()
 }
 
+test {
+    testLogging {
+        afterSuite { desc, result ->
+            if (!desc.parent) {
+                println "Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)"
+            }
+        }
+    }
+    reports {
+        junitXml.enabled = false
+        html.enabled = true
+    }
+}
 
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-actuator')
