@@ -20,6 +20,6 @@ cache:
 script:
   # other script steps might be done before running the actual analysis
   - sonar-scanner
-  - ./gradlew build docker
+  - ./gradlew build docker --stacktrace
 notifications:
   email: false #disabling email notification
