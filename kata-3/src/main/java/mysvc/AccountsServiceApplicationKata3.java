@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MysvcApplicationKata3 {
+public class AccountsServiceApplicationKata3 {
 
     public static void main(String[] args) {
-        SpringApplication.run(MysvcApplicationKata3.class, args);
+        SpringApplication.run(AccountsServiceApplicationKata3.class, args);
     }
 }
