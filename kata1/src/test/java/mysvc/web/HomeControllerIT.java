@@ -1,4 +1,4 @@
-package com.joseyustiz.msvcdojo.mysvc.web;
+package mysvc.web;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -40,4 +40,3 @@ public class HomeControllerIT {
         assertThat(response.getBody()).isEqualTo("Hello World!");
     }
 }
-

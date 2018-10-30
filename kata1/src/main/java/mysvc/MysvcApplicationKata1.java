@@ -1,12 +1,12 @@
-package com.joseyustiz.msvcdojo.mysvc;
+package mysvc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MysvcApplication {
+public class MysvcApplicationKata1 {
 
     public static void main(String[] args) {
-        SpringApplication.run(MysvcApplication.class, args);
+        SpringApplication.run(MysvcApplicationKata1.class, args);
     }
 }

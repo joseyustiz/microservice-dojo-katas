@@ -1,4 +1,4 @@
-package com.joseyustiz.msvcdojo.mysvc.web;
+package mysvc.web;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

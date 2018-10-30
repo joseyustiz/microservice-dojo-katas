@@ -1,4 +1,4 @@
-package com.joseyustiz.msvcdojo.mysvc.web;
+package mysvc.web;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
