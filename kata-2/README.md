@@ -12,7 +12,7 @@
 ![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=joseyustiz_microservice-dojo-kata1&metric=sqale_index)
 ![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=joseyustiz_microservice-dojo-kata1&metric=vulnerabilities)
 
-This is the solution implementation for the katas #2 [Dockerizing Application](http://accordance.github.io/microservice-dojo/kata2/dockerizing_application.html) 
+This is the solution for the katas #2 [Dockerizing Application](http://accordance.github.io/microservice-dojo/kata2/dockerizing_application.html) 
 ## Building a Docker image
 In order to build the project and the docker image, just run the following command:
 * `gradle build docker`  
