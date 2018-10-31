@@ -12,7 +12,7 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // JPA Only
-class Account {
+public class Account {
     @Id
     @GeneratedValue
     private Long id;
