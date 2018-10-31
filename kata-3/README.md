@@ -20,10 +20,10 @@ You can double-check if the image was crated by running:
 * `docker images`
 
 ## Starting the container
- We need to star the container, map the service port (8100) and give a name to the container (kata-3)
- * `docker run -d -p 8100:8100 --name kata-3 com.joseyustiz.msvcdojo/kata-3`
+ We need to star the container, map the service port (8200) and give a name to the container (kata-3)
+ * `docker run -d -p 8200:8200 --name kata-3 com.joseyustiz.msvcdojo/kata-3`
  You can test with `curl` if the service is running by the following command
- * `curl http://localhost:8100`
+ * `curl http://localhost:8200`
  
  ## Cleaning up 
  In order to prevent to have a conflict the next time you start the container with the same name (kata-3), you can delete the image.
@@ -33,3 +33,9 @@ You can double-check if the image was crated by running:
  
  Now, you can delet the container
  * `docker rm kata-3`
+ 
+ ##Running the MySQL Service
+ * `docker run --name demo-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=demo -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -p 3306:3306 -d mysql:latest`
+ 
+ You can verify whether the demo-mysql container is up and running by the following command:
+ * `docker logs demo-mysql`
