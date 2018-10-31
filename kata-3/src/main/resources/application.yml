@@ -1,6 +1,5 @@
-
 server:
-  port: 8200
+  port: 8300
 spring:
   application:
     name: accounts-service
