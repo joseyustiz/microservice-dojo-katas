@@ -21,6 +21,6 @@ script:
   # other script steps might be done before running the actual analysis
   - sonar-scanner -Dsonar.jacoco.reportPaths=$buildDir/jacoco/test.exec
   - docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
-  - ./gradlew build docker --debug
+  - ./gradlew build docker --stacktrace
 notifications:
   email: false #disabling email notification
