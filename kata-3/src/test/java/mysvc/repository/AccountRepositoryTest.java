@@ -38,6 +38,7 @@ public class AccountRepositoryTest {
         int count = 0;
         for (Account account : accounts) {
             assertThat(account.getUsername()).isEqualTo(JOSEYUSTIZ);
+            assertThat(account.getId()).isGreaterThan(0L);
             count++;
         }
         assertThat(count).isEqualTo(1);
