@@ -35,6 +35,8 @@ dependencies {
     implementation('mysql:mysql-connector-java') //Use MySQL Connector-J
     //JPA Data (We are going to use Repositories, Entities, Hibernate, etc...)
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    //Lombok to generate boilerplate code
+    compileOnly('org.projectlombok:lombok')
     implementation('org.springframework.boot:spring-boot-starter-web'){
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
     }
