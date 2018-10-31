@@ -19,8 +19,8 @@ cache:
     - $HOME/.gradle/wrapper/
 script:
   # other script steps might be done before running the actual analysis
-  - sonar-scanner -Dsonar.jacoco.reportPaths=$buildDir/jacoco/test.exec
   - docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
-  - ./gradlew build docker --stacktrace
+  - ./gradlew build jacocoMerge docker --stacktrace
+  - sonar-scanner -Dsonar.jacoco.reportPaths=$buildDir/jacoco/allTestCoverage.exec
 notifications:
   email: false #disabling email notification
