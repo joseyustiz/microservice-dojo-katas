@@ -21,6 +21,6 @@ script:
   # other script steps might be done before running the actual analysis
 #  - sonar-scanner
   - docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
-  - ./gradlew sonarqube build docker --stacktrace
+  - ./gradlew sonarqube build docker --debug
 notifications:
   email: false #disabling email notification
