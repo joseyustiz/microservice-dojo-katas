@@ -43,6 +43,11 @@ dependencies {
     compile ('org.springframework.boot:spring-boot-starter-jetty') {
         exclude group: 'org.eclipse.jetty.websocket'
     }
+
+    // Test Dependencies
+    testCompile 'org.junit.jupiter:junit-jupiter-api'
+    testCompile 'org.junit.jupiter:junit-jupiter-engine'
+    testCompile 'org.assertj:assertj-core'
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 // Instruction base in Spring Guide "Spring Boot with Docker"
