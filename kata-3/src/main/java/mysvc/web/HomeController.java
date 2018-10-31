@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by jyustiz on 10/29/18 for project mysvc.
  */
 @RestController
-class HomeController {
+public class HomeController {
 
     @RequestMapping("/")
     String home() {
