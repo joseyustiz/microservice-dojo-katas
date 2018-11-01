@@ -20,7 +20,7 @@ cache:
 script:
   # other script steps might be done before running the actual analysis
   - docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
-  - ./gradlew build docker jacocoMerge sonarqube -Dsonar.jacoco.reportPaths=${TRAVIS_BUILD_DIR}/jacoco/allTestCoverage.exec
+  - ./gradlew clean build docker jacocoMerge sonarqube -Dsonar.jacoco.reportPaths=${TRAVIS_BUILD_DIR}/jacoco/allTestCoverage.exec
 #  - sonar-scanner -Dsonar.jacoco.reportPaths=${TRAVIS_BUILD_DIR}/jacoco/allTestCoverage.exec
 notifications:
   email: false #disabling email notification
