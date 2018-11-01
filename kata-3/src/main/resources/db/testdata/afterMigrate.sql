@@ -1,0 +1,1 @@
+INSERT INTO account (id,username) VALUES (1,'john');
