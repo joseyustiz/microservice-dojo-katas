@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -14,7 +15,9 @@ import javax.persistence.Id;
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // JPA Only
 public class Account {
     @Id
-    @GeneratedValue
+    // strategy = GenerationType.IDENTITY required to prevent org.h2.jdbc.JdbcSQLException:
+    // Sequence "HIBERNATE_SEQUENCE" not found; SQL statement:
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NonNull
