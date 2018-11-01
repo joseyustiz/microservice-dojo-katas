@@ -2,4 +2,11 @@ server:
   port: 8300
 spring:
   application:
-    name: accounts-service
+     name: accounts-service
+  flyway:
+    locations: classpath:/db/migration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
