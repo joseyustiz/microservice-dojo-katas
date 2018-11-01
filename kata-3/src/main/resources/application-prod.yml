@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    database: MYSQL
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    # it must be the name of the mysql container because
+    # if you use localhost it won't be able to connect
+    url: jdbc:mysql://demo-mysql:3306/demo
+    username: demo_user
+    driver-class-name: com.mysql.jdbc.Driver
+    password: demo_pass
+  flyway:
+    locations: classpath:/db/migration
