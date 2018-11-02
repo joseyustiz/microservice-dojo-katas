@@ -20,6 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class HomeControllerTest {
     @Autowired
     private MockMvc mockMvc;
+
     @Test
     public void getHello() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))

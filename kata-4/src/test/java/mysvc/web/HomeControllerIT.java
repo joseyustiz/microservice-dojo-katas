@@ -35,7 +35,7 @@ public class HomeControllerIT {
     }
 
     @Test
-    public void getHello()  {
+    public void getHello() {
         ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
         assertThat(response.getBody()).isEqualTo("Hello World from Kata-3!");
     }

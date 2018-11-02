@@ -1,1 +1,2 @@
-ALTER TABLE account ADD role varchar(255);
+ALTER TABLE account
+  ADD role varchar(255);

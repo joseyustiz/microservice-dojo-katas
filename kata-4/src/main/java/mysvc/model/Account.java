@@ -29,9 +29,9 @@ public class Account {
     private String role;
 
     public void setRole(String role) {
-        if(StringUtils.isBlank(role))
+        if (StringUtils.isBlank(role))
             throw new BlankRoleArgumentException("Role cannot be blank");
-        this.role=role;
+        this.role = role;
     }
 
     @Override
