@@ -13,5 +13,7 @@ import java.util.List;
 @RepositoryRestResource
 interface AccountRepository extends JpaRepository<Account, Long> {
     List<Account> findByUsername(@Param("username") String username);
+
+    Iterable<Account> findByRole(String role);
 }
 
