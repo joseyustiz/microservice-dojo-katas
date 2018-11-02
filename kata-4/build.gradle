@@ -1,0 +1,80 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.6.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" } // required to find the Docker Gradle Plugin of Palantir
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        //dependencia para correr la aplicación en docker
+        classpath('gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.19.2')
+        // Required by the flyway plugin
+        classpath('mysql:mysql-connector-java:5.1.47')
+//        classpath('com.h2database:h2:1.4.197')
+
+    }
+}
+
+//Running Sonarqube analysis from Gradle
+//plugins { id "org.sonarqube" version "2.6.2" }
+// Added the Flyway gradle plugin to perform cleaning of the database when there are misconfiguration
+plugins { id "org.flywaydb.flyway" version "5.2.1" }
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: "com.palantir.docker" // plugin para docker
+apply plugin: "jacoco" // this plugin provides code coverage metrics for Java code
+
+
+group = 'com.joseyustiz.msvcdojo'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-actuator')
+    implementation('com.h2database:h2') //H2 dependency
+    implementation('mysql:mysql-connector-java') //Use MySQL Connector-J
+    implementation('org.flywaydb:flyway-core')
+    //JPA Data (We are going to use Repositories, Entities, Hibernate, etc...)
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation('org.springframework.boot:spring-boot-starter-data-rest')
+    //Lombok to generate boilerplate code
+    compileOnly('org.projectlombok:lombok')
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.8.1'
+
+    implementation('org.springframework.boot:spring-boot-starter-web'){
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+    }
+    compile ('org.springframework.boot:spring-boot-starter-jetty') {
+        exclude group: 'org.eclipse.jetty.websocket'
+    }
+
+    testCompile 'org.assertj:assertj-core'
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+// Instruction base in Spring Guide "Spring Boot with Docker"
+// located at https://spring.io/guides/gs/spring-boot-docker/
+task unpack(type: Copy) {
+    dependsOn bootJar
+    from(zipTree(tasks.bootJar.outputs.files.singleFile))
+    into("build/dependency")
+}
+docker {
+    name "${project.group}/${bootJar.baseName}"
+    dockerfile = file('src/main/docker/Dockerfile')
+    copySpec.from(tasks.unpack.outputs).into("dependency")
+    buildArgs(['DEPENDENCY': "dependency"])
+}
+// Required by the flyway plugin
+flyway {
+    url = 'jdbc:mysql://localhost:3306/demo'
+    user = 'demo_user'
+    password = 'demo_pass'
+}
