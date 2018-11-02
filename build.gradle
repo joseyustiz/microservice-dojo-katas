@@ -32,7 +32,11 @@ task jacocoMerge(dependsOn: ['jacocoMergeTest']) {
 
 subprojects {
     sonarqube {
+        String regex = "(.*)/(.*)"
+        String projectKey = project.name.replaceAll(regex, "\$1:\$2")
+        String sonarModuleKey = rootProject.group + ':' + rootProject.name + ':' + projectKey
         properties {
+            property "sonar.moduleKey", sonarModuleKey
             property "sonar.jacoco.reportPaths", allTestCoverageFile
         }
     }
