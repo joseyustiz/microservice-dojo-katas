@@ -1,6 +1,8 @@
 package mysvc.model;
 
 import lombok.*;
+import mysvc.exception.BlankRoleArgumentException;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +15,7 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // JPA Only
+@RequiredArgsConstructor
 public class Account {
     @Id
     // strategy = GenerationType.IDENTITY required to prevent org.h2.jdbc.JdbcSQLException:
@@ -23,8 +26,12 @@ public class Account {
     @NonNull
     private String username;
 
-    public Account(String username){
-        this.username=username;
+    private String role;
+
+    public void setRole(String role) {
+        if(StringUtils.isBlank(role))
+            throw new BlankRoleArgumentException("Role cannot be blank");
+        this.role=role;
     }
 
     @Override
@@ -32,6 +39,10 @@ public class Account {
         final StringBuilder sb = new StringBuilder("User{");
         sb.append("id:").append(id);
         sb.append(", username:'").append(username).append('\'');
+        if (StringUtils.isNotBlank(role))
+            sb.append(", role:'").append(role).append('\'');
+        else
+            sb.append(", role:").append(role);
         sb.append('}');
         return sb.toString();
     }
