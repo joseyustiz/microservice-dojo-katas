@@ -16,7 +16,7 @@ This repository contains solutions for the katas defined at [Microservices-Dojo]
 
 | Kata # | Description and Solution Proposed by the Author | My Solution | Tech Stack |
 | :----: | ----------- |------------| ---------- |
-|  1     | [Building Simple Web Service with Spring Boot](http://accordance.github.io/microservice-dojo/katas/creating_basic_web_service.html) | [Kata-1](https://github.com/joseyustiz/microservice-dojo-katas/tree/master/kata1)| Spring Boot |
+|  1     | [Building Simple Web Service with Spring Boot](http://accordance.github.io/microservice-dojo/katas/creating_basic_web_service.html) | [Kata-1](https://github.com/joseyustiz/microservice-dojo-katas/tree/master/kata-1)| Spring Boot |
 |  2     | [Dockerizing Application](http://accordance.github.io/microservice-dojo/kata2/dockerizing_application.html) | [Kata-2](https://github.com/joseyustiz/microservice-dojo-katas/tree/master/kata-2) | Docker |
 |  3     | [Microservice with personal DB and database migrations](http://accordance.github.io/microservice-dojo/kata3/service_using_mysql_db.html) | [Kata-3](https://github.com/joseyustiz/microservice-dojo-katas/tree/master/kata-3) | Flyway |
 |  4     | [Externalizing configuration](http://accordance.github.io/microservice-dojo/kata4/externalizing_configuration.html) |  |  |
