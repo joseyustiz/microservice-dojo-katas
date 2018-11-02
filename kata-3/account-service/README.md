@@ -45,10 +45,10 @@ We can verify if the network was created by the following command:
 ## Starting the kata-3 container
   
 1. *Running with **dev** profile:* we only need to start the container, map the service port (8300) and give a name to the container (kata-3-dev)
-* `docker run -d -p 83400:8300 -e "SPRING_PROFILES_ACTIVE=dev" --name kata-3-dev com.joseyustiz.msvcdojo/kata-3`
+* `docker run -d -p 83400:8300 -e "SPRING_PROFILES_ACTIVE=dev" --name kata-3-dev com.joseyustiz.msvcdojo/kata-3/account-service`
 
 2. *Running with **prod** profile:* we need to make sure the the docker network (katas-network) was created, start the container, give a name to the container (kata-3-prod), and map the service port 8300 to 8400 to prevent conflict with kata-3-dev if it is still running.
-* `docker run -d -p 8400:8300 -e "SPRING_PROFILES_ACTIVE=prod" --network=katas-network  --name kata-3-prod com.joseyustiz.msvcdojo/kata-3`
+* `docker run -d -p 8400:8300 -e "SPRING_PROFILES_ACTIVE=prod" --network=katas-network  --name kata-3-prod com.joseyustiz.msvcdojo/kata-3/account-service`
  
   ##Testing the account service
   We can test with **curl**. If the **dev** container is running, use the following command:
@@ -76,4 +76,4 @@ We can verify if the network was created by the following command:
  * To delete kata-3-prod run: `docker rm kata-3-prod`
  
  Another interested docker command is `docker logs <CONTAINER_NAME>`, which allows to see the logs of the containers; e.g.
- * `docker logs kata-3-prod` 
+ * `docker logs kata-3-prod`
