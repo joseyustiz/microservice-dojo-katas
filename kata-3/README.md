@@ -51,7 +51,7 @@ We can verify if the network was created by the following command:
 * `docker run -d -p 8400:8300 -e "SPRING_PROFILES_ACTIVE=prod" --network=katas-network  --name kata-3-prod com.joseyustiz.msvcdojo/kata-3`
  
   ##Testing the account service
-  We can test with **curl** if the service is running by the following command
+  We can test with **curl**. If the **dev** container is running, use the following command:
   * `curl http://localhost:8300`
   * `curl http://localhost:8300/actuator`
   * `curl http://localhost:8300/accounts`
@@ -59,7 +59,8 @@ We can verify if the network was created by the following command:
   * `echo '{"username": "jose"}' | curl -H "Content-type:application/json" -d @- http://localhost:8300/accounts`
   * `echo '{"username": "dave"}' | curl -H "Content-type:application/json" -d @- http://localhost:8300/accounts`
   * `curl http://localhost:8300/accounts/search/findByUsername\?username\=jose`
-
+  * `curl http://localhost:8300/accounts/search/findByRole\?role\=user`
+    If the **prod** is running, change the port to **8400**. 
 ## Cleaning up 
  In order to prevent to have a conflict the next time we start the container with the same name (kata-3), we can delete the image.
 1. List the containers running:
@@ -72,3 +73,6 @@ We can verify if the network was created by the following command:
  Now, we can delete the containers
  * To delete kata-3-dev run: `docker rm kata-3-dev`
  * To delete kata-3-prod run: `docker rm kata-3-prod`
+ 
+ Another interested docker command is docker logs <CONTAINER_NAME>, which allows to see the logs of the containers; e.g.
+ * `docker logs kata-3-prod` 
