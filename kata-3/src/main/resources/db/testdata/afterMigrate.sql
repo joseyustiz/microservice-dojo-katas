@@ -1,1 +1,1 @@
-INSERT INTO account (id,username) VALUES (1,'john');
+INSERT INTO account (id,username,role) VALUES (1,'john','admin');
