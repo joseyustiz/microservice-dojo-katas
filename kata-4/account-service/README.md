@@ -12,7 +12,7 @@
 ![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=joseyustiz_microservice-dojo-kata1&metric=sqale_index)
 ![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=joseyustiz_microservice-dojo-kata1&metric=vulnerabilities)
 
-This is the solution for the katas # 3 [Microservice with personal DB and database migrations](http://accordance.github.io/microservice-dojo/kata3/service_using_mysql_db.html) 
+This is the solution for the katas # 4 [Externalizing configuration](http://accordance.github.io/microservice-dojo/kata4/externalizing_configuration.html). In this kata we are going to use Spring Configuration to externalize the configuration of the services. 
 ## Building a Docker image
 In order to build the project and the docker image, just run the following command:
 * `gradle clean build docker`  
@@ -25,7 +25,7 @@ There are two profiles defined:
 2. _**prod** profile:_ it uses MySQL database to store data; Flyway does not load data. This kata is configure to run on Docker, so we have to make sure to explicitly configure the network if we run the example with the docker command
 
 ###Creating the docker network
-Before running the containers we have to create the docker network to make sure the MySQL and the kata-3 (account-service) containers are able to communicate 
+Before running the containers we have to create the docker network to make sure the MySQL and the kata-4 (account-service) containers are able to communicate 
 
 It has to be done only once.
  * `docker network create -d bridge katas-network` for more information visit [docker network create](https://docs.docker.com/engine/reference/commandline/network_create/)
@@ -42,13 +42,13 @@ We can verify if the network was created by the following command:
  We can verify whether the demo-mysql container is up and running by the following command:
  * `docker logs demo-mysql`
 
-## Starting the kata-3 container
+## Starting the kata-4 container
   
-1. *Running with **dev** profile:* we only need to start the container, map the service port (8300) and give a name to the container (kata-3-dev)
-* `docker run -d -p 83400:8300 -e "SPRING_PROFILES_ACTIVE=dev" --name kata-3-dev com.joseyustiz.msvcdojo/kata-3`
+1. *Running with **dev** profile:* we only need to start the container, map the service port (8300) and give a name to the container (kata-4-dev)
+* `docker run -d -p 83400:8300 -e "SPRING_PROFILES_ACTIVE=dev" --name kata-4-dev com.joseyustiz.msvcdojo/kata-4/account-service`
 
-2. *Running with **prod** profile:* we need to make sure the the docker network (katas-network) was created, start the container, give a name to the container (kata-3-prod), and map the service port 8300 to 8400 to prevent conflict with kata-3-dev if it is still running.
-* `docker run -d -p 8400:8300 -e "SPRING_PROFILES_ACTIVE=prod" --network=katas-network  --name kata-3-prod com.joseyustiz.msvcdojo/kata-3`
+2. *Running with **prod** profile:* we need to make sure the the docker network (katas-network) was created, start the container, give a name to the container (kata-4-prod), and map the service port 8300 to 8400 to prevent conflict with kata-4-dev if it is still running.
+* `docker run -d -p 8400:8300 -e "SPRING_PROFILES_ACTIVE=prod" --network=katas-network  --name kata-4-prod com.joseyustiz.msvcdojo/kata-4/account-service`
  
   ##Testing the account service
   We can test with **curl**. If the **dev** container is running, use the following command:
@@ -63,17 +63,17 @@ We can verify if the network was created by the following command:
  
  If the **prod** is running, change the port to **8400**. 
 ## Cleaning up 
- In order to prevent to have a conflict the next time we start the container with the same name (kata-3), we can delete the image.
+ In order to prevent to have a conflict the next time we start the container with the same name (kata-4), we can delete the image.
 1. List the containers running:
 * `docker ps`
 2. Stop the containers running:
  First, let's stop the container
- * If kata-3-dev is running `docker stop kata-3-dev`
- * If kata-3-prod is running `docker stop kata-3-prod`
+ * If kata-4-dev is running `docker stop kata-4-dev`
+ * If kata-4-prod is running `docker stop kata-4-prod`
  
  Now, we can delete the containers
- * To delete kata-3-dev run: `docker rm kata-3-dev`
- * To delete kata-3-prod run: `docker rm kata-3-prod`
+ * To delete kata-4-dev run: `docker rm kata-4-dev`
+ * To delete kata-4-prod run: `docker rm kata-4-prod`
  
  Another interested docker command is `docker logs <CONTAINER_NAME>`, which allows to see the logs of the containers; e.g.
- * `docker logs kata-3-prod` 
+ * `docker logs kata-4-prod` 
