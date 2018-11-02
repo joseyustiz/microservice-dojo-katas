@@ -1,2 +1,3 @@
-rootProject.name = 'mysvc'
-include 'kata1','kata-2','kata-3','kata-4'
+rootProject.name = 'microservice-dojo-katas'
+//include 'kata-2','kata-3','kata-4'
+include 'kata-1/account-service','kata-2/account-service','kata-3/account-service','kata-4/account-service'
