@@ -1,16 +1,16 @@
 # microservice-dojo-katas 
 [![Build Status](https://travis-ci.org/joseyustiz/microservice-dojo-katas.svg?branch=master)](https://travis-ci.org/joseyustiz/microservice-dojo-katas)
-![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=com.joseyustiz.msvcdojo%3Amysvc&metric=alert_status)
-![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=com.joseyustiz.msvcdojo%3Amysvc&metric=bugs)
-![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=com.joseyustiz.msvcdojo%3Amysvc&metric=code_smells)
-![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=com.joseyustiz.msvcdojo%3Amysvc&metric=coverage)
-![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=com.joseyustiz.msvcdojo%3Amysvc&metric=duplicated_lines_density)
-![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=com.joseyustiz.msvcdojo%3Amysvc&metric=ncloc)
-![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=com.joseyustiz.msvcdojo%3Amysvc&metric=sqale_rating)
-![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=com.joseyustiz.msvcdojo%3Amysvc&metric=reliability_rating)
-![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=com.joseyustiz.msvcdojo%3Amysvc&metric=security_rating)
-![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=com.joseyustiz.msvcdojo%3Amysvc&metric=sqale_index)
-![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=com.joseyustiz.msvcdojo%3Amysvc&metric=vulnerabilities)
+![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=joseyustiz_microservice-dojo-kata1&metric=alert_status)
+![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=joseyustiz_microservice-dojo-kata1&metric=bugs)
+![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=joseyustiz_microservice-dojo-kata1&metric=code_smells)
+![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=joseyustiz_microservice-dojo-kata1&metric=coverage)
+![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=joseyustiz_microservice-dojo-kata1&metric=duplicated_lines_density)
+![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=joseyustiz_microservice-dojo-kata1&metric=ncloc)
+![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=joseyustiz_microservice-dojo-kata1&metric=sqale_rating)
+![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=joseyustiz_microservice-dojo-kata1&metric=reliability_rating)
+![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=joseyustiz_microservice-dojo-kata1&metric=security_rating)
+![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=joseyustiz_microservice-dojo-kata1&metric=sqale_index)
+![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=joseyustiz_microservice-dojo-kata1&metric=vulnerabilities)
 
 This repository contains solutions for the katas defined at [Microservices-Dojo](http://accordance.github.io/microservice-dojo/). This project contains multiples subproject, one for each kata; The katas are the following: 
 
