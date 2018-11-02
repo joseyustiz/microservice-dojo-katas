@@ -12,7 +12,18 @@ public class AccountTest {
     @Test
     public void toStringReturnProperJsonFormat(){
         Account account = new Account("Jose");
-        String joseToString="User{id:null, username:\'Jose\'}";
-        assertThat(account.toString()).isEqualTo(joseToString);
+        String accountToString="User{id:null, username:\'Jose\', role:null}";
+        assertThat(account.toString()).isEqualTo(accountToString);
+
+        account = new Account("Jhon");
+        account.setRole("admin");
+        accountToString = "User{id:null, username:\'Jhon\', role:'admin'}";
+        assertThat(account.toString()).isEqualTo(accountToString);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setRoleDoesNotAllowEmptyRole(){
+        Account account = new Account("Jhon");
+        account.setRole("");
     }
 }
