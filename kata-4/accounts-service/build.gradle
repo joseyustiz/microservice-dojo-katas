@@ -35,6 +35,11 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+ext {
+    springCloudVersion = 'Greenwich.M1'
 }
 
 dependencies {
@@ -56,9 +61,17 @@ dependencies {
         exclude group: 'org.eclipse.jetty.websocket'
     }
 
-    testCompile 'org.assertj:assertj-core'
+    testImplementation( 'org.assertj:assertj-core')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('org.springframework.cloud:spring-cloud-config-server')
 }
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
 // Instruction base in Spring Guide "Spring Boot with Docker"
 // located at https://spring.io/guides/gs/spring-boot-docker/
 task unpack(type: Copy) {
