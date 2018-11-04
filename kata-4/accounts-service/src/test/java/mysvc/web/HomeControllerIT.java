@@ -18,7 +18,6 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 /**
  * Created by jyustiz on 10/29/18 for project mysvc.
  */
-@ActiveProfiles("test")
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class HomeControllerIT {
