@@ -3,4 +3,4 @@ spring:
     config:
       server:
         git:
-          uri: ${conf:https://github.com/joseyustiz/microservice-dojo-configuration}
+          uri: https://github.com/joseyustiz/microservice-dojo-configuration
