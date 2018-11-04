@@ -25,7 +25,7 @@ There are two profiles defined:
 2. _**prod** profile:_ it uses MySQL database to store data; Flyway does not load data. This kata is configure to run on Docker, so we have to make sure to explicitly configure the network if we run the example with the docker command
 
 ###Creating the docker network
-Before running the containers we have to create the docker network to make sure the MySQL and the kata-4 (account-service) containers are able to communicate 
+Before running the containers we have to create the docker network to make sure the MySQL and the kata-4 (accounts-service) containers are able to communicate 
 
 It has to be done only once.
  * `docker network create -d bridge katas-network` for more information visit [docker network create](https://docs.docker.com/engine/reference/commandline/network_create/)
@@ -76,4 +76,7 @@ We can verify if the network was created by the following command:
  * To delete kata-4-prod run: `docker rm kata-4-prod`
  
  Another interested docker command is `docker logs <CONTAINER_NAME>`, which allows to see the logs of the containers; e.g.
- * `docker logs kata-4-prod` 
+ * `docker logs kata-4-prod`
+ 
+ * `docker run -d -p 8888:8888 --network=katas-network  --name kata-4-configserver com.joseyustiz.msvcdojo/kata-4/config-server` 
+ * `docker run -d -p 8400:8300 -e "SPRING_PROFILES_ACTIVE=prod" --network=katas-network  --name kata-4-prod com.joseyustiz.msvcdojo/kata-4/account-service`

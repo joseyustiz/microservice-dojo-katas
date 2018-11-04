@@ -25,7 +25,7 @@ There are two profiles defined:
 2. _**prod** profile:_ it uses MySQL database to store data; Flyway does not load data. This kata is configure to run on Docker, so we have to make sure to explicitly configure the network if we run the example with the docker command
 
 ###Creating the docker network
-Before running the containers we have to create the docker network to make sure the MySQL and the kata-3 (account-service) containers are able to communicate 
+Before running the containers we have to create the docker network to make sure the MySQL and the kata-3 (accounts-service) containers are able to communicate 
 
 It has to be done only once.
  * `docker network create -d bridge katas-network` for more information visit [docker network create](https://docs.docker.com/engine/reference/commandline/network_create/)
@@ -45,10 +45,10 @@ We can verify if the network was created by the following command:
 ## Starting the kata-3 container
   
 1. *Running with **dev** profile:* we only need to start the container, map the service port (8300) and give a name to the container (kata-3-dev)
-* `docker run -d -p 83400:8300 -e "SPRING_PROFILES_ACTIVE=dev" --name kata-3-dev com.joseyustiz.msvcdojo/kata-3/account-service`
+* `docker run -d -p 83400:8300 -e "SPRING_PROFILES_ACTIVE=dev" --name kata-3-dev com.joseyustiz.msvcdojo/kata-3/accounts-service`
 
 2. *Running with **prod** profile:* we need to make sure the the docker network (katas-network) was created, start the container, give a name to the container (kata-3-prod), and map the service port 8300 to 8400 to prevent conflict with kata-3-dev if it is still running.
-* `docker run -d -p 8400:8300 -e "SPRING_PROFILES_ACTIVE=prod" --network=katas-network  --name kata-3-prod com.joseyustiz.msvcdojo/kata-3/account-service`
+* `docker run -d -p 8400:8300 -e "SPRING_PROFILES_ACTIVE=prod" --network=katas-network  --name kata-3-prod com.joseyustiz.msvcdojo/kata-3/accounts-service`
  
   ##Testing the account service
   We can test with **curl**. If the **dev** container is running, use the following command:

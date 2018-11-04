@@ -25,6 +25,6 @@ public class HomeControllerTest {
     public void getHello() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Hello World from Kata-3!"));
+                .andExpect(content().string("Hello World from Kata-4!"));
     }
 }

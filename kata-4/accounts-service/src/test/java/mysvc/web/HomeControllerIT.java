@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.net.MalformedURLException;
@@ -17,7 +18,7 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 /**
  * Created by jyustiz on 10/29/18 for project mysvc.
  */
-
+@ActiveProfiles("test")
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class HomeControllerIT {
@@ -37,6 +38,6 @@ public class HomeControllerIT {
     @Test
     public void getHello() {
         ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
-        assertThat(response.getBody()).isEqualTo("Hello World from Kata-3!");
+        assertThat(response.getBody()).isEqualTo("Hello World from Kata-4!");
     }
 }

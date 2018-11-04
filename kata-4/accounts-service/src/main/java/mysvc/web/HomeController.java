@@ -11,6 +11,7 @@ public class HomeController {
 
     @RequestMapping("/")
     String home() {
-        return "Hello World from Kata-3!";
+        return "Hello World from Kata-4!";
     }
+
 }

@@ -21,7 +21,7 @@ You can double-check if the image was crated by running:
 
 ## Starting the container
  We need to star the container, map the service port (8100) and give a name to the container (kata-2)
- * `docker run -d -p 8100:8100 --name kata-2 com.joseyustiz.msvcdojo/kata-2/account-service`
+ * `docker run -d -p 8100:8100 --name kata-2 com.joseyustiz.msvcdojo/kata-2/accounts-service`
  You can test with `curl` if the service is running by the following command
  * `curl http://localhost:8100`
  
