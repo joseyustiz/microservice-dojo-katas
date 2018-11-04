@@ -35,12 +35,12 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
-    maven { url "https://repo.spring.io/milestone" }
+//    maven { url "https://repo.spring.io/milestone" }
 }
 
-ext {
-    springCloudVersion = 'Greenwich.M1'
-}
+//ext {
+//    springCloudVersion = 'Greenwich.M1'
+//}
 
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-actuator')
@@ -63,14 +63,14 @@ dependencies {
 
     testImplementation( 'org.assertj:assertj-core')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
-    testImplementation('org.springframework.cloud:spring-cloud-config-server')
+//    testImplementation('org.springframework.cloud:spring-cloud-config-server')
 }
 
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-    }
-}
+//dependencyManagement {
+//    imports {
+//        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+//    }
+//}
 
 // Instruction base in Spring Guide "Spring Boot with Docker"
 // located at https://spring.io/guides/gs/spring-boot-docker/
