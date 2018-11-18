@@ -52,7 +52,7 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-data-rest')
     //Lombok to generate boilerplate code
     compileOnly('org.projectlombok:lombok:1.18.4')
-    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.8.1'
+    implementation('org.apache.commons:commons-lang3:3.8.1')
 
     implementation('org.springframework.boot:spring-boot-starter-web'){
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
