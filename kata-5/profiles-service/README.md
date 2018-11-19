@@ -25,30 +25,34 @@ There are two profiles defined:
 2. _**prod** profile:_ it uses MySQL database to store data; Flyway does not load data. This kata is configure to run on Docker, so we have to make sure to explicitly configure the network if we run the example with the docker command
 
 ###Creating the docker network
-Before running the containers we have to create the docker network to make sure the MySQL and the kata-4 (accounts-service) containers are able to communicate 
+If we haven't run kata-4 containers, we need to configure the network where the service are going to connect before running the containers 
 
 It has to be done only once.
  * `docker network create -d bridge katas-network` for more information visit [docker network create](https://docs.docker.com/engine/reference/commandline/network_create/)
  
 We can verify if the network was created by the following command:
  * `docker network ls`
- If the MySQL is already running, we can add it to the network by the following command: 
- * `docker network connect katas-network demo-mysql`
- 
- ##Running the MySQL Service
- If the MySQL is not runnig by the following command we can start it and add to the `katas-network`: 
- * `docker run --name demo-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=demo -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -p 3306:3306 --network=katas-network -d mysql:latest`
- 
- We can verify whether the demo-mysql container is up and running by the following command:
- * `docker logs demo-mysql`
 
-## Starting the kata-4 container
+##Running the MongoDB Service
+To create a docker container running Mongo DB, we just to run the following command:
+* `docker run --name mongo -d -p 27017:27017 --network=katas-network mongo`
+If we have a mongo container we want to use and it is running, we can add it to the katas-network in order all the katas are able to see it:
+* `docker network connect katas-network mongo`  
+
+#Running the Configuration Server
+A running Configuration Server is required because we centralized the configuration file in a GitHub repo since kata-4. Run the following command to create and run the configserver:
+* `docker run -d -p 8888:8888 --network=katas-network  --name kata-4-configserver com.joseyustiz.msvcdojo/kata-4/config-server`
+
+If it is already creater, we need only start it:
+* `docker start kata-4-configserver`
+   
+## Starting the profiles-service container
   
-1. *Running with **dev** profile:* we only need to start the container, map the service port (8300) and give a name to the container (kata-4-dev)
-* `docker run -d -p 8300:8300 -e "SPRING_PROFILES_ACTIVE=dev" --name kata-4-dev com.joseyustiz.msvcdojo/kata-4/account-service`
+1. *Running with **dev** profile:* we only need to start the container, map the service port (8500) and give a name to the container (kata-5-profiles-service-dev)
+* `docker run -d -p 8500:8300 -e "SPRING_PROFILES_ACTIVE=dev" --name kata-5-profiles-service-dev com.joseyustiz.msvcdojo/kata-5/profiles-service`
 
-2. *Running with **prod** profile:* we need to make sure the the docker network (katas-network) was created, start the container, give a name to the container (kata-4-prod), and map the service port 8300 to 8400 to prevent conflict with kata-4-dev if it is still running.
-* `docker run -d -p 8400:8300 -e "SPRING_PROFILES_ACTIVE=prod" --network=katas-network  --name kata-4-prod com.joseyustiz.msvcdojo/kata-4/account-service`
+2. *Running with **prod** profile:* we need to make sure the the docker network (katas-network) was created, start the container, give a name to the container (kata-5-profiles-service-prod), and map the service port 8600 to 8300 to prevent conflict with kata-5-profiles-service-dev if it is still running.
+* `docker run -d -p 8400:8101 -e "SPRING_PROFILES_ACTIVE=prod" --network=katas-network  --name kata-5-profiles-service-prod com.joseyustiz.msvcdojo/kata-5/profiles-service`
  
   ##Testing the account service
   We can test with **curl**. If the **dev** container is running, use the following command:
