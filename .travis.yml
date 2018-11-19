@@ -1,7 +1,6 @@
 language: java
 #############################
 # Required for running docker
-sudo: required
 services:
   - docker
 #############################
